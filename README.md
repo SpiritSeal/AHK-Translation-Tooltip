@@ -5,11 +5,12 @@ The goal of this project was to provide a simpler and faster solution for quickl
 
 ## How to use
 1. Highlight the text you want to translate
-2. Press the corresponding hotkey (Defaults are <kbd>Ctrl</kbd>+<kbd>F1</kbd> for lang2-->lang1 and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F1</kbd> for lang1-->lang2)
+2. Press the corresponding hotkey (Defaults are <kbd>Ctrl</kbd>+<kbd>F1</kbd> for `lang2`-->`lang1` and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F1</kbd> for `lang1`-->`lang2`)
 3. Tooltip should appear containing translation
 
 ## TODO:
 - Add nice GUI for choosing hotkeys
 - Create tray icon
 - Package into an executible for non-AHK users
-- Find way to automatically determine translation direction (lang1-->lang2 or lang2-->lang1; may be possible with `"auto"` option)
+- Find way to automatically determine translation direction (`lang1`-->`lang2` or `lang2`-->`lang1`; may be possible with `"auto"` option)
+- Add a disable verbose option to prevent synonyms of one word tranlations

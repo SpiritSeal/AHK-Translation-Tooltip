@@ -6,8 +6,8 @@ The goal of this project was to provide a simpler and faster solution for quickl
 ## How to use
 1. Highlight the text you want to translate
 2. Press the corresponding hotkey 
-  3. (Defaults are <kbd>Ctrl</kbd>+<kbd>F1</kbd> for `lang2`-->`lang1` and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F1</kbd> for `lang1`-->`lang2`)
-4. Tooltip should appear containing translation
+  - (Defaults are <kbd>Ctrl</kbd>+<kbd>F1</kbd> for `lang2`-->`lang1` and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F1</kbd> for `lang1`-->`lang2`)
+3. Tooltip should appear containing translation
 
 ## TODO:
 - Add nice GUI for choosing hotkeys

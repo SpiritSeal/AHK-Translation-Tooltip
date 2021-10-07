@@ -1,18 +1,82 @@
 #SingleInstance Force
+#NoEnv
 
 ;CHANGE THESE
 lang1:="en" ;Intended use: Familiar Language
 lang2:="es" ;Intended use: Unfamiliar Language
+;Stop Changing Stuff here pls
+Menu, Tray, Tip , Tooltip Translator
+Menu, Tray, NoStandard
+Menu, Tray, Add, Change Hotkeys, ShowGUI
+Menu, Tray, Add
+Menu, Tray, Add, About, About
+Menu, Tray, Add, Open Github Page, Github
 
-/*;Todo: Add hotkey chooser GUI
-ChosenHotkey:="F12"
-F11::
-Gui, Add, Hotkey, ChosenHotkey
-Gui, show
+gosub, HotkeyChange
 return
-F12::Hotkey, ChosenHotkey, Translatinator
-*/
 
+;-------------------------------------------------------------------------------
+ButtonSubmit: ; disable the old hotkey before adding a new one
+   GuiControlGet, ChosenHotkey
+   if ChosenHotkey
+      Hotkey, %ChosenHotkey%, AutoPrimLang, Off
+      Hotkey, %ChosenHotkey%, AutoPrimLang
+   if ChosenHotkey2
+      Hotkey, %ChosenHotkey2%, SecPrimLang, Off
+      Hotkey, %ChosenHotkey2%, SecPrimLang
+   if ChosenHotkey3
+      Hotkey, %ChosenHotkey3%, PrimSecLang, Off
+      Hotkey, %ChosenHotkey3%, PrimSecLang
+   Gui, Hide
+return
+
+ShowGUI:
+   Gui, Show
+return
+
+HotkeyChange:
+    Gui, Add, Text,, Enter your [Auto -> Primary Language] hotkey below
+    Gui, Add, Hotkey, vChosenHotkey
+    Gui, Add, Text,, Enter your [Secondary Language -> Primary Language] hotkey below
+    Gui, Add, Hotkey, vChosenHotkey2
+    Gui, Add, Text,, Enter your [Primary Language -> Secondary Language] hotkey below
+    Gui, Add, Hotkey, vChosenHotkey3
+    Gui, Add, Button,, Submit
+    Gui, Show
+return
+
+About:
+MsgBox Tooltip Translator by Saketh Reddy
+return
+Github:
+msgbox,262147,DECISION,Open Github Page ?
+      ifmsgbox,CANCEL 
+      {
+         return
+      }
+      ifmsgbox,NO 
+      {
+         return
+      }
+
+run,https://github.com/SpiritSeal/AHK-Translation-Tooltip
+return
+
+
+
+AutoPrimLang: ;"IDK what language this is, but I want it in My Language" Button
+    Translatinator("auto", lang1)
+return
+SecPrimLang:
+   Translatinator(lang2, lang1)
+return
+PrimSecLang:
+   Translatinator(lang1, lang2)
+return
+
+
+
++Esc::Translatinator("auto", lang1) ;"IDK what language this is, but I want it in My Language" Button
 ^F1::Translatinator(lang2, lang1)
 ^+F1::Translatinator(lang1, lang2)
 
@@ -21,7 +85,7 @@ mousegetpos, x1, y1
 x2:=x1
 y2:=y1
 clip:=Clipboard
-SendInput ^c
+Send ^c
 ToolTip , % GoogleTranslate(Clipboard, "es", "en")
 looper:=true
 while x1=x2 and y1=y2{

@@ -74,7 +74,9 @@ PrimSecLang:
    Translatinator(lang1, lang2)
 return
 
-
+;TESTING
+; hola mundo, torneo. Hola, me llamo Pablo.
+; This is a test sentence.
 
 +Esc::Translatinator("auto", lang1) ;"IDK what language this is, but I want it in My Language" Button
 ^F1::Translatinator(lang2, lang1)
@@ -86,7 +88,7 @@ x2:=x1
 y2:=y1
 clip:=Clipboard
 Send ^c
-ToolTip , % GoogleTranslate(Clipboard, "es", "en")
+ToolTip , % GoogleTranslate(Clipboard, to, from)
 looper:=true
 while x1=x2 and y1=y2{
 	mousegetpos, x2, y2

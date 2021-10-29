@@ -1,3 +1,5 @@
+Note: Please `X` out of the GUI that appears when the program is initially run- it's a feature that is still being worked on.
+
 # AHK-Translation-Tooltip
 ## an AHK Script that Google Translates highlighted text into a tooltip
 Based on [this AHK implementation of the Google Translate API](https://www.autohotkey.com/boards/viewtopic.php?t=63835) by teadrinker on the AHK Forums.
